@@ -143,6 +143,7 @@ define ([
 
       console.log('rendering data:', data);
 
+      // populate with rows and items
       for (var i=0;i<this.rowsCount;i++){
         var $row = this.createRow();
         if (!i) { $row.addClass('current'); }
@@ -151,6 +152,8 @@ define ([
 
         this.populate($row.find('.items-list'), data.items, this.itemsCount);        
       }
+
+      // set transform-origin for rows and items holders
 
       var rowsAngle = 360 / this.rowsCount * Math.PI /180 / 2,
           itemsAngle = 360 / this.itemsCount * Math.PI /180 / 2;
@@ -175,7 +178,7 @@ define ([
       this.rowsCount = options.rowsCount || 5;
       this.itemsCount = options.itemsCount || 6;
 
-      // key nodes
+      // set key nodes
       this.$main = $('body > .main');
       this.$viewport = $('#viewport');
       this.$content = $('#content');
