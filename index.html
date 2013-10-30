@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>random image example</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="styles.css" type="text/css" media="screen" charset="utf-8">
+
+    <!-- scripts -->
+    <script data-main="config.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.9/require.min.js"></script>
+
+</head>
+<body>
+
+	<div class="main">
+
+		<div class="controls">
+			<ul>
+				<li><a class="scroll-rows up" href="#">up</a></li>
+				<li><a class="scroll-rows down" href="#">down</a></li>
+				<li><a class="scroll-items left" href="#">left</a></li>
+				<li><a class="scroll-items right" href="#">right</a></li>
+
+				<li><a class="zoom out" href="#">[ <span/> ]</a></li>
+
+				<li>
+					<div class="set-tag">
+						<form>
+							<input type="text" value="sunset" placeholder="enter tag"/>
+						</form>
+					</div>
+				</li>
+				<li>
+					<div class="toggle-rotate">
+						<label>
+							<input type="checkbox"/>
+							<span>animate</span>
+						</label>
+					</div>
+				</li>				
+			</ul>
+		</div>	
+
+		<div id="viewport">
+			<div id="content">
+				<ul class="rows-list"></ul>
+			</div>	
+		</div>
+
+	</div>
+</body>
+</html>
