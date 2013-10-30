@@ -109,16 +109,21 @@ define ([
       );
     },  
 
-    orderedLoad: function($target, items, i){
+    populate: function($target, items, i){
       if (items.length && i) {
         var $item = this.createItem(items [Math.round(Math.random()*19)]);
         $target.append($item);
 
         if ($item.is(':first-child')) { $item.addClass('current'); }
 
-        $item.find('img').bind('load', _.bind(function(e){
-          this.orderedLoad($target, items, i - 1);
-        }, this));
+        var $img = $item.find('img');
+
+        this.populate($target, items, i - 1);
+
+        // next image after previous
+        // $img.bind('load', _.bind(function(){
+        //  this.populate($target, items, i - 1);
+        //}, this));
       }
     },
 
@@ -144,7 +149,7 @@ define ([
 
         this.$content.find('>.rows-list').append($row);
 
-        this.orderedLoad($row.find('.items-list'), data.items, this.itemsCount);        
+        this.populate($row.find('.items-list'), data.items, this.itemsCount);        
       }
 
       var rowsAngle = 360 / this.rowsCount * Math.PI /180 / 2,
@@ -165,19 +170,21 @@ define ([
     },
 
     start: function (options) {
-      
       var options = options || {};
 
       this.rowsCount = options.rowsCount || 5;
       this.itemsCount = options.itemsCount || 6;
 
+      // key nodes
       this.$main = $('body > .main');
       this.$viewport = $('#viewport');
       this.$content = $('#content');
       this.$rowsList = this.$content.find('.rows-list');
 
+      // fetch initial image list
       this.fetch('sunset', this.render);
 
+      // bind controls
       this.bindEvents(this.$main);
 
       console.log('Application started');
