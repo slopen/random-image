@@ -124,17 +124,19 @@ body {
 }
 #viewport {
   position: relative;
-  z-index: 0;
+  height: 512px;
+  z-index: 1000;
   top: 50%;
   margin-top: -256px;
   -webkit-transition: -webkit-transform 1s ease;
+  -webkit-transform-style: preserve-3d;
 }
 #viewport.scaled {
-  -webkit-transform: scale(0.33);
+  -webkit-transform: scale(0.5);
 }
 #viewport.rotated #content {
   -webkit-animation: rotate 12s ease;
-  -webkit-animation-iteration-count: 25;
+  -webkit-animation-iteration-count: infinite;
 }
 #content {
   margin: 0 auto;

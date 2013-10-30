@@ -275,18 +275,21 @@ body{
 
 #viewport{
 	position:relative;
-	z-index: 0;
+	height:@height;	
+	z-index: 1000;
 	top:50%;
 	margin-top: -@height/2;
+
 	-webkit-transition:-webkit-transform 1s ease;
+	-webkit-transform-style: preserve-3d;
 
 	&.scaled{
-		-webkit-transform: scale(0.33);
+		-webkit-transform: scale(0.5);
 	}
 
 	&.rotated #content{
         -webkit-animation: rotate 12s ease;
-	    -webkit-animation-iteration-count:25;        
+	    -webkit-animation-iteration-count:infinite;        
 	}	
 }
 

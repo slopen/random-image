@@ -93,7 +93,7 @@ define ([
       }
     },
 
-    flickerAPI : "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
+    flickerAPI : "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
 
     createRow: function(){
       return $(
@@ -111,12 +111,12 @@ define ([
 
     orderedLoad: function($target, items, i){
       if (items.length && i) {
-        var $item = this.createItem(items [Math.round(Math.random()*20)]);
+        var $item = this.createItem(items [Math.round(Math.random()*19)]);
         $target.append($item);
 
         if ($item.is(':first-child')) { $item.addClass('current'); }
 
-        $item.find('img').bind('load', _.bind(function(){
+        $item.find('img').bind('load', _.bind(function(e){
           this.orderedLoad($target, items, i - 1);
         }, this));
       }
